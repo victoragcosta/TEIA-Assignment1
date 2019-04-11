@@ -19,8 +19,9 @@ X_test, y_test = split_data_labels(test_data)
 
 # Configure
 per = Perceptron(X_train.shape[1], 0.00001) # Inicia Perceptron com 60 entradas
+#per = MultilayerPerceptron((X_train.shape[1],1), 0.1)
 # Train
-results = per.fit(X_train, y_train, epochs=5000, X_validation=X_test, y_validation=y_test)
+results = per.fit(X_train, y_train, epochs=10, X_validation=X_test, y_validation=y_test)
 acc, err = zip(*results)
 print(min(*err))
 print(per.get_best_accuracy(X_test,y_test))
